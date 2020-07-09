@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TheMovieDB</string>
+    <string name="image_banner">Image Poster</string>
+    <string name="title">Title</string>
+</resources>
