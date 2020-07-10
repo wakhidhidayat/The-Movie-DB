@@ -10,6 +10,12 @@ data class Result(
     var title: String?,
 
     @SerializedName("poster_path")
-    var poster_path: String?
+    var poster_path: String?,
+
+    @SerializedName("backdrop_path")
+    var backdrop_path: String?,
+
+    @SerializedName("overview")
+    var overview: String?
 
 ) : Parcelable

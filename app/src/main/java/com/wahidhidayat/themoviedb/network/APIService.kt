@@ -1,14 +1,21 @@
 package com.wahidhidayat.themoviedb.network
 
-import com.wahidhidayat.themoviedb.model.Movie
-import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Query
+import com.wahidhidayat.themoviedb.BuildConfig
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-interface APIService {
-    @GET("discover/movie")
-    fun getMovies(
-        @Query("api_key") apiKey: String,
-        @Query("language") language: String
-    ): Call<Movie>
+object APIService {
+    private val client = OkHttpClient.Builder().build()
+
+    private val retrofit = Retrofit
+        .Builder()
+        .baseUrl(BuildConfig.BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(client)
+        .build()
+
+    fun<T> buildService(service: Class<T>): T {
+        return retrofit.create(service)
+    }
 }
