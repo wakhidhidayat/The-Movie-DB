@@ -15,7 +15,7 @@ object APIService {
         .client(client)
         .build()
 
-    fun<T> buildService(service: Class<T>): T {
+    fun <T> buildService(service: Class<T>): T {
         return retrofit.create(service)
     }
 }

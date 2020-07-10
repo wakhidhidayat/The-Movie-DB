@@ -1,71 +1,46 @@
 package com.wahidhidayat.themoviedb.activity
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.wahidhidayat.themoviedb.BuildConfig
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wahidhidayat.themoviedb.R
-import com.wahidhidayat.themoviedb.adapter.MovieAdapter
-import com.wahidhidayat.themoviedb.adapter.MovieUpcomingAdapter
-import com.wahidhidayat.themoviedb.model.Movie
-import com.wahidhidayat.themoviedb.model.Result
-import com.wahidhidayat.themoviedb.network.APIEndpoints
-import com.wahidhidayat.themoviedb.network.APIService
+import com.wahidhidayat.themoviedb.fragment.MovieFragment
+import com.wahidhidayat.themoviedb.fragment.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rv_now_playing.setHasFixedSize(true)
-        rv_now_playing.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
-        rv_upcoming.setHasFixedSize(true)
-        rv_upcoming.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
-        fetch(BuildConfig.API_KEY, "en-US")
-        fetchUpcoming(BuildConfig.API_KEY, "en-US")
+        loadFragment(MovieFragment())
+        bottom_nav.setOnNavigationItemSelectedListener(this)
     }
 
-    private fun fetch(apiKey: String, language: String) {
-        val service = APIService.buildService(APIEndpoints::class.java)
-        val call = service.getMovies(apiKey, language)
-        call.enqueue(object : Callback<Movie> {
-            override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
-                if (response.isSuccessful) {
-                    rv_now_playing.adapter = MovieAdapter(
-                        response.body()!!.result as ArrayList<Result>,
-                        this@MainActivity
-                    )
-                }
-            }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        var fragment: Fragment? = null
 
-            override fun onFailure(call: Call<Movie>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
+        if (item.itemId == R.id.movie_page) {
+            fragment = MovieFragment()
+        } else if (item.itemId == R.id.search_page) {
+            fragment = SearchFragment()
+        }
+
+        return loadFragment(fragment)
     }
 
-    private fun fetchUpcoming(apiKey: String, language: String) {
-        val service = APIService.buildService(APIEndpoints::class.java)
-        val call = service.getUpcoming(apiKey, language)
-        call.enqueue(object : Callback<Movie> {
-            override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
-                if (response.isSuccessful) {
-                    rv_upcoming.adapter = MovieUpcomingAdapter(
-                        response.body()!!.result as ArrayList<Result>,
-                        this@MainActivity
-                    )
-                }
-            }
-
-            override fun onFailure(call: Call<Movie>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
+    private fun loadFragment(fragment: Fragment?): Boolean {
+        if (fragment != null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit()
+            return true
+        }
+        return false
     }
+
+
 }

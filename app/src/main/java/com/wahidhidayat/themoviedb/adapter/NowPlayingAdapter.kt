@@ -9,27 +9,27 @@ import com.bumptech.glide.Glide
 import com.wahidhidayat.themoviedb.BuildConfig
 import com.wahidhidayat.themoviedb.R
 import com.wahidhidayat.themoviedb.model.Result
-import kotlinx.android.synthetic.main.item_now_playing_movie.view.*
-import kotlinx.android.synthetic.main.item_upcoming_movie.view.*
+import kotlinx.android.synthetic.main.item_now_playing.view.*
 
-class MovieUpcomingAdapter(
+class NowPlayingAdapter(
     private val listMovie: ArrayList<Result>,
     private val context: Context
-) : RecyclerView.Adapter<MovieUpcomingAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<NowPlayingAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: Result) {
             with(itemView) {
                 Glide.with(itemView.context)
-                    .load(BuildConfig.BASE_IMAGE_URL + "w500" + movie.backdrop_path)
-                    .into(iv_poster_upcoming_movie)
+                    .load(BuildConfig.BASE_IMAGE_URL + "w500" + movie.poster_path)
+                    .into(iv_now_playing)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_upcoming_movie, parent, false)
-        return MovieUpcomingAdapter.ViewHolder(view)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_now_playing, parent, false)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -40,4 +40,5 @@ class MovieUpcomingAdapter(
         val movie: Result = listMovie[position]
         holder.bind(movie)
     }
+
 }

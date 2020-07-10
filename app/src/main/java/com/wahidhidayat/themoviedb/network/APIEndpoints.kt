@@ -17,4 +17,10 @@ interface APIEndpoints {
         @Query("api_key") apiKey: String,
         @Query("language") language: String
     ): Call<Movie>
+
+    @GET("movie/popular")
+    fun getPopular(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String
+    ): Call<Movie>
 }
