@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.wahidhidayat.themoviedb.BuildConfig
 import com.wahidhidayat.themoviedb.R
 import com.wahidhidayat.themoviedb.adapter.NowPlayingAdapter
@@ -16,6 +17,8 @@ import com.wahidhidayat.themoviedb.model.Movie
 import com.wahidhidayat.themoviedb.model.Result
 import com.wahidhidayat.themoviedb.network.APIEndpoints
 import com.wahidhidayat.themoviedb.network.APIService
+import kotlinx.android.synthetic.main.fragment_movie.*
+import kotlinx.android.synthetic.main.fragment_movie.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,11 +33,11 @@ class MovieFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val ui = inflater.inflate(R.layout.fragment_movie, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_movie, container, false)
 
-        rvNowPlaying = ui.findViewById(R.id.rv_now_playing)
-        rvUpcoming = ui.findViewById(R.id.rv_upcoming)
-        rvPopular = ui.findViewById(R.id.rv_popular)
+        rvNowPlaying = view.findViewById(R.id.rv_now_playing)
+        rvUpcoming = view.findViewById(R.id.rv_upcoming)
+        rvPopular = view.findViewById(R.id.rv_popular)
 
         rvNowPlaying.setHasFixedSize(true)
         rvNowPlaying.layoutManager =
@@ -52,15 +55,17 @@ class MovieFragment : Fragment() {
         fetchUpcoming(BuildConfig.API_KEY, "en-US")
         fetchPopular(BuildConfig.API_KEY, "en-US")
 
-        return ui
+        return view
     }
 
     private fun fetch(apiKey: String, language: String) {
+
         val service = APIService.buildService(APIEndpoints::class.java)
         val call = service.getMovies(apiKey, language)
         call.enqueue(object : Callback<Movie> {
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
                 if (response.isSuccessful) {
+
                     rvNowPlaying.adapter = activity?.let {
                         NowPlayingAdapter(
                             response.body()!!.result as ArrayList<Result>,

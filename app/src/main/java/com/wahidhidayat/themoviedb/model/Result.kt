@@ -16,6 +16,12 @@ data class Result(
     var backdrop_path: String?,
 
     @SerializedName("overview")
-    var overview: String?
+    var overview: String?,
+
+    @SerializedName("release_date")
+    var release_date: String?,
+
+    @SerializedName("vote_average")
+    var vote_average: Double?
 
 ) : Parcelable
