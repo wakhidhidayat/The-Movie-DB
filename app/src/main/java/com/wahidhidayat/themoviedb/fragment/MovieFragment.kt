@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.wahidhidayat.themoviedb.BuildConfig
 import com.wahidhidayat.themoviedb.R
 import com.wahidhidayat.themoviedb.adapter.NowPlayingAdapter
@@ -17,8 +16,6 @@ import com.wahidhidayat.themoviedb.model.Movie
 import com.wahidhidayat.themoviedb.model.Result
 import com.wahidhidayat.themoviedb.network.APIEndpoints
 import com.wahidhidayat.themoviedb.network.APIService
-import kotlinx.android.synthetic.main.fragment_movie.*
-import kotlinx.android.synthetic.main.fragment_movie.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

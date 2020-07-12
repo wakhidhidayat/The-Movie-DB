@@ -41,7 +41,7 @@ class NowPlayingAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movie: Result = listMovie[position]
         holder.bind(movie)
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra(DetailActivity.EXTRA_MOVIE, movie)
             context.startActivity(intent)
