@@ -65,18 +65,67 @@
             tools:text="2020" />
 
         <TextView
-            android:id="@+id/tv_overview"
+            android:id="@+id/tv_ratting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_detail"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/tv_release"
+            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:drawablePadding="5dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp"
+            tools:text="7.8" />
+
+        <TextView
+            android:id="@+id/tv_overview_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_release"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:text="@string/overview"
+            android:textColor="@color/colorFont"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_overview_header"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif"
             android:textColor="@color/colorFont"
             android:textSize="18sp"
             tools:text="Overview" />
+
+        <TextView
+            android:id="@+id/tv_credit_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_overview"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/top_credits"
+            android:textColor="@color/colorFont"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_credits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_credit_header" />
 
     </RelativeLayout>
 
