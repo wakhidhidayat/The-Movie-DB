@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
+    android:fillViewport="true"
     android:scrollbars="vertical"
     tools:context=".activity.DetailActivity">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -28,6 +29,16 @@
                 app:titleTextColor="@color/colorFont" />
 
         </com.google.android.material.appbar.AppBarLayout>
+
+        <ProgressBar
+            android:id="@+id/pb_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:indeterminateTint="@color/colorFont"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/tv_title_detail"
@@ -51,81 +62,22 @@
             android:layout_below="@id/tv_title_detail"
             android:contentDescription="@string/image_banner" />
 
-        <TextView
-            android:id="@+id/tv_release"
-            android:layout_width="wrap_content"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_detail"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/colorFont"
-            android:textSize="16sp"
-            tools:text="2020" />
-
-        <TextView
-            android:id="@+id/tv_ratting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iv_detail"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@id/tv_release"
-            android:drawableStart="@drawable/ic_baseline_star_24"
-            android:drawablePadding="5dp"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/colorFont"
-            android:textSize="16sp"
-            tools:text="7.8" />
-
-        <TextView
-            android:id="@+id/tv_overview_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_release"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/overview"
-            android:textColor="@color/colorFont"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:background="@color/colorNavigation"
+            app:tabTextColor="@color/colorFont" />
 
-        <TextView
-            android:id="@+id/tv_overview"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_overview_header"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/colorFont"
-            android:textSize="18sp"
-            tools:text="Overview" />
-
-        <TextView
-            android:id="@+id/tv_credit_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_overview"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/top_credits"
-            android:textColor="@color/colorFont"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_credits"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_credit_header" />
+            android:layout_below="@id/tab_layout" />
 
     </RelativeLayout>
 

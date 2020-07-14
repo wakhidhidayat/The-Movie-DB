@@ -18,7 +18,8 @@
             android:layout_width="180dp"
             android:layout_height="250dp"
             android:contentDescription="@string/image_banner"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:src="@color/colorImage" />
 
     </androidx.cardview.widget.CardView>
 

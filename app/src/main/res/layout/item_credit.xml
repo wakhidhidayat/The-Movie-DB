@@ -11,9 +11,9 @@
         android:id="@+id/iv_credit"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:padding="10dp" />
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:src="@color/colorImage" />
 
     <TextView
         android:id="@+id/tv_credit_name"

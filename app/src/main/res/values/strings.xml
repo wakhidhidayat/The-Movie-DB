@@ -11,4 +11,7 @@
     <string name="movie_detail">Movie Detail</string>
     <string name="top_credits">Top Casts</string>
     <string name="overview">Overview</string>
+    <string name="general">General</string>
+    <string name="release">Release:</string>
+    <string name="vote_average">Average</string>
 </resources>

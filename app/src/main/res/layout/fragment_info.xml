@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fillViewport="true"
+    android:scrollbars="vertical"
+    android:scrollbarThumbVertical="@drawable/scroll_bar">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".fragment.InfoFragment">
+
+        <TextView
+            android:id="@+id/tv_general_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/general"
+            android:textColor="@color/colorFont"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_release_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_general_header"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/release"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_general_header"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/tv_release_header"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp"
+            tools:text="2020" />
+
+        <TextView
+            android:id="@+id/tv_ratting_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_release_header"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/vote_average"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_ratting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_release"
+            android:layout_toEndOf="@id/tv_release_header"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:drawablePadding="5dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorFont"
+            android:textSize="16sp"
+            tools:text="7.8" />
+
+        <TextView
+            android:id="@+id/tv_overview_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_ratting"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/overview"
+            android:textColor="@color/colorFont"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_overview_header"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorFont"
+            android:textSize="18sp"
+            tools:text="Overview" />
+
+        <TextView
+            android:id="@+id/tv_credit_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_overview"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/top_credits"
+            android:textColor="@color/colorFont"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_credits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_credit_header"
+            tools:listitem="@layout/item_credit" />
+
+    </RelativeLayout>
+
+</ScrollView>

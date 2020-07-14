@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.item_credit.view.*
 
 class CastAdapter(
     private val listCredit: ArrayList<Cast>,
-    private val context: Context
+    private val context: Context?
 ) : RecyclerView.Adapter<CastAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(cast: Cast) {
