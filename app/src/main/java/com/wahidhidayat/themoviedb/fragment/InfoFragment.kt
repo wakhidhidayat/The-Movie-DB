@@ -106,7 +106,7 @@ class InfoFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun dateFormat(releaseDate: String): String {
-        val formatYear = SimpleDateFormat("yyyy", Locale.ENGLISH)
+        val formatYear = SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)
         var year: String? = null
         try {
             val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)

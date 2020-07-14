@@ -28,7 +28,7 @@ class ViewPagerAdapter(context: Context, fm: FragmentManager) :
         var title: String? = null
         when (position) {
             0 -> title = "Info"
-            1 -> title = "Video"
+            1 -> title = "Videos"
         }
         return title
     }

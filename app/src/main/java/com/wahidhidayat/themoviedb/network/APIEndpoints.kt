@@ -12,31 +12,38 @@ interface APIEndpoints {
     @GET("movie/now_playing")
     fun getMovies(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String?
     ): Call<Movies>
 
     @GET("movie/upcoming")
     fun getUpcoming(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String?
     ): Call<Movies>
 
     @GET("movie/popular")
     fun getPopular(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String?
     ): Call<Movies>
 
     @GET("movie/{movie_id}")
     fun getMovie(
-        @Path("movie_id") movieId: Int?,
+        @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String?
     ): Call<Movie>
 
     @GET("movie/{movie_id}/credits")
     fun getCredits(
-        @Path("movie_id") movieId: Int?,
+        @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String
     ): Call<Credits>
+
+    @GET("movie/{movie_id}/videos")
+    fun getVideos(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String?
+    )
 }

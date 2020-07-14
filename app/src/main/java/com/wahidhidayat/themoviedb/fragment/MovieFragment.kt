@@ -15,7 +15,7 @@ import com.wahidhidayat.themoviedb.adapter.NowPlayingAdapter
 import com.wahidhidayat.themoviedb.adapter.PopularAdapter
 import com.wahidhidayat.themoviedb.adapter.UpcomingAdapter
 import com.wahidhidayat.themoviedb.model.Movies
-import com.wahidhidayat.themoviedb.model.Result
+import com.wahidhidayat.themoviedb.model.MovieResult
 import com.wahidhidayat.themoviedb.network.APIEndpoints
 import com.wahidhidayat.themoviedb.network.APIService
 import retrofit2.Call
@@ -71,7 +71,7 @@ class MovieFragment : Fragment() {
                     progressBar.visibility = View.GONE
                     rvNowPlaying.adapter = activity?.let {
                         NowPlayingAdapter(
-                            response.body()?.result as ArrayList<Result>,
+                            response.body()?.result as ArrayList<MovieResult>,
                             it
                         )
                     }
@@ -93,7 +93,7 @@ class MovieFragment : Fragment() {
                     progressBar.visibility = View.GONE
                     rvUpcoming.adapter = activity?.let {
                         UpcomingAdapter(
-                            response.body()!!.result as ArrayList<Result>,
+                            response.body()!!.result as ArrayList<MovieResult>,
                             it
                         )
                     }
@@ -115,7 +115,7 @@ class MovieFragment : Fragment() {
                     progressBar.visibility = View.GONE
                     rvPopular.adapter = activity?.let {
                         PopularAdapter(
-                            response.body()!!.result as ArrayList<Result>,
+                            response.body()!!.result as ArrayList<MovieResult>,
                             it
                         )
                     }

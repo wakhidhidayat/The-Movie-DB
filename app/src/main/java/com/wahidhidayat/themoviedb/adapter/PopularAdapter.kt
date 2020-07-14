@@ -10,15 +10,15 @@ import com.bumptech.glide.Glide
 import com.wahidhidayat.themoviedb.BuildConfig
 import com.wahidhidayat.themoviedb.R
 import com.wahidhidayat.themoviedb.activity.DetailActivity
-import com.wahidhidayat.themoviedb.model.Result
+import com.wahidhidayat.themoviedb.model.MovieResult
 import kotlinx.android.synthetic.main.item_popular.view.*
 
 class PopularAdapter(
-    private val listMovie: ArrayList<Result>,
+    private val listMovie: ArrayList<MovieResult>,
     private val context: Context
 ) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(movie: Result) {
+        fun bind(movie: MovieResult) {
             with(itemView) {
                 tv_title_popular.text = movie.title
                 Glide.with(itemView.context)
@@ -38,7 +38,7 @@ class PopularAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val movie: Result = listMovie[position]
+        val movie: MovieResult = listMovie[position]
         holder.bind(movie)
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java)

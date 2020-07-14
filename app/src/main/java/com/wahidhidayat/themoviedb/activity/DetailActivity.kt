@@ -3,6 +3,7 @@ package com.wahidhidayat.themoviedb.activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -12,7 +13,7 @@ import com.wahidhidayat.themoviedb.BuildConfig
 import com.wahidhidayat.themoviedb.R
 import com.wahidhidayat.themoviedb.adapter.ViewPagerAdapter
 import com.wahidhidayat.themoviedb.model.Movie
-import com.wahidhidayat.themoviedb.model.Result
+import com.wahidhidayat.themoviedb.model.MovieResult
 import com.wahidhidayat.themoviedb.network.APIEndpoints
 import com.wahidhidayat.themoviedb.network.APIService
 import kotlinx.android.synthetic.main.activity_detail.*
@@ -44,11 +45,12 @@ class DetailActivity : AppCompatActivity() {
 
         pb_detail.visibility = View.VISIBLE
 
-        val movie = intent.getParcelableExtra(EXTRA_MOVIE) as Result
+        val movie = intent.getParcelableExtra(EXTRA_MOVIE) as MovieResult
         val movieId = movie.id
 
         if (movieId != null) {
             fetchDetail(movieId, "en-US")
+            Log.i("MOVIE_ID", movieId.toString())
         }
     }
 
@@ -77,8 +79,8 @@ class DetailActivity : AppCompatActivity() {
         })
     }
 
-    fun getMovie(): Result {
-        val movie = intent.getParcelableExtra(EXTRA_MOVIE) as Result
+    fun getMovie(): MovieResult {
+        val movie = intent.getParcelableExtra(EXTRA_MOVIE) as MovieResult
         return movie
     }
 }

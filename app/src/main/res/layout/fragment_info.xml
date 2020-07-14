@@ -36,7 +36,7 @@
             android:layout_marginEnd="10dp"
             android:fontFamily="sans-serif"
             android:text="@string/release"
-            android:textColor="@color/colorFont"
+            android:textColor="@color/colorFontSecondary"
             android:textSize="16sp" />
 
         <TextView
@@ -47,7 +47,7 @@
             android:layout_marginEnd="10dp"
             android:layout_toEndOf="@id/tv_release_header"
             android:fontFamily="sans-serif"
-            android:textColor="@color/colorFont"
+            android:textColor="@color/colorFontSecondary"
             android:textSize="16sp"
             tools:text="2020" />
 
@@ -61,7 +61,7 @@
             android:layout_marginEnd="20dp"
             android:fontFamily="sans-serif"
             android:text="@string/vote_average"
-            android:textColor="@color/colorFont"
+            android:textColor="@color/colorFontSecondary"
             android:textSize="16sp" />
 
         <TextView
@@ -71,13 +71,25 @@
             android:layout_below="@id/tv_release"
             android:layout_toEndOf="@id/tv_release_header"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
             android:drawableStart="@drawable/ic_baseline_star_24"
             android:drawablePadding="5dp"
             android:fontFamily="sans-serif"
-            android:textColor="@color/colorFont"
+            android:textColor="@color/colorFontSecondary"
             android:textSize="16sp"
             tools:text="7.8" />
+
+        <TextView
+            android:id="@+id/tv_ratting_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_release_header"
+            android:layout_toEndOf="@id/tv_ratting"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/ratting_max"
+            android:textColor="@color/colorFontSecondary"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_overview_header"
@@ -102,7 +114,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif"
-            android:textColor="@color/colorFont"
+            android:textColor="@color/colorFontSecondary"
             android:textSize="18sp"
             tools:text="Overview" />
 
