@@ -15,4 +15,5 @@
     <string name="release">Release:</string>
     <string name="vote_average">Average</string>
     <string name="ratting_max">/10</string>
+    <string name="thumbnail">Thumbnail</string>
 </resources>

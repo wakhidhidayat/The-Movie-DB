@@ -14,8 +14,8 @@ import com.wahidhidayat.themoviedb.R
 import com.wahidhidayat.themoviedb.adapter.NowPlayingAdapter
 import com.wahidhidayat.themoviedb.adapter.PopularAdapter
 import com.wahidhidayat.themoviedb.adapter.UpcomingAdapter
-import com.wahidhidayat.themoviedb.model.Movies
 import com.wahidhidayat.themoviedb.model.MovieResult
+import com.wahidhidayat.themoviedb.model.Movies
 import com.wahidhidayat.themoviedb.network.APIEndpoints
 import com.wahidhidayat.themoviedb.network.APIService
 import retrofit2.Call

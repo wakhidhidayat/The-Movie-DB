@@ -3,6 +3,7 @@ package com.wahidhidayat.themoviedb.network
 import com.wahidhidayat.themoviedb.model.Credits
 import com.wahidhidayat.themoviedb.model.Movie
 import com.wahidhidayat.themoviedb.model.Movies
+import com.wahidhidayat.themoviedb.model.Videos
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -45,5 +46,5 @@ interface APIEndpoints {
         @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String,
         @Query("language") language: String?
-    )
+    ): Call<Videos>
 }

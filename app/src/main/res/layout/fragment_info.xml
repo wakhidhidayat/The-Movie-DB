@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     android:fillViewport="true"
-    android:scrollbars="vertical"
-    android:scrollbarThumbVertical="@drawable/scroll_bar">
+    android:scrollbarThumbVertical="@drawable/scroll_bar"
+    android:scrollbars="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -69,8 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_release"
-            android:layout_toEndOf="@id/tv_release_header"
             android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/tv_release_header"
             android:drawableStart="@drawable/ic_baseline_star_24"
             android:drawablePadding="5dp"
             android:fontFamily="sans-serif"
@@ -83,9 +83,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_release_header"
-            android:layout_toEndOf="@id/tv_ratting"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@id/tv_ratting"
             android:fontFamily="sans-serif"
             android:text="@string/ratting_max"
             android:textColor="@color/colorFontSecondary"
