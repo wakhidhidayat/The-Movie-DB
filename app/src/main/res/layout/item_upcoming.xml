@@ -18,8 +18,10 @@
             android:layout_width="280dp"
             android:layout_height="180dp"
             android:contentDescription="@string/image_banner"
+            android:foreground="?android:attr/selectableItemBackground"
             android:scaleType="fitXY"
-            android:src="@color/colorImage" />
+            android:src="@color/colorImage"
+            android:theme="@android:style/ThemeOverlay.Material.Dark" />
 
     </androidx.cardview.widget.CardView>
 

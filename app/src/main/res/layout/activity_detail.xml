@@ -17,13 +17,13 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_detail"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/colorBackground"
+                android:layout_height="60dp"
                 android:theme="@style/ToolbarTheme"
                 app:subtitleTextColor="@color/colorFont"
                 app:titleTextColor="@color/colorFont" />

@@ -13,9 +13,11 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorFontSecondary"
+        android:background="@color/colorImage"
         android:contentDescription="@string/thumbnail"
-        android:scaleType="fitXY" />
+        android:foreground="?android:attr/selectableItemBackground"
+        android:scaleType="fitXY"
+        android:theme="@android:style/ThemeOverlay.Material.Dark" />
 
     <TextView
         android:id="@+id/tv_title_video"

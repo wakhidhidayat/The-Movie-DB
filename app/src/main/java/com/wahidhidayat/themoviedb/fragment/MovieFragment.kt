@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +24,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MovieFragment : Fragment() {
+    private lateinit var tvNowPlaying: TextView
+    private lateinit var tvUpcoming: TextView
+    private lateinit var tvPopular: TextView
     private lateinit var rvNowPlaying: RecyclerView
     private lateinit var rvUpcoming: RecyclerView
     private lateinit var rvPopular: RecyclerView
@@ -37,6 +41,10 @@ class MovieFragment : Fragment() {
 
         progressBar = view.findViewById(R.id.pb_movie)
         progressBar.visibility = View.VISIBLE
+
+        tvNowPlaying = view.findViewById(R.id.tv_now_playing)
+        tvUpcoming = view.findViewById(R.id.tv_upcoming)
+        tvPopular = view.findViewById(R.id.tv_popular)
 
         rvNowPlaying = view.findViewById(R.id.rv_now_playing)
         rvUpcoming = view.findViewById(R.id.rv_upcoming)
@@ -69,6 +77,7 @@ class MovieFragment : Fragment() {
             override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
                 if (response.isSuccessful) {
                     progressBar.visibility = View.GONE
+                    tvNowPlaying.text = getString(R.string.now_playing)
                     rvNowPlaying.adapter = activity?.let {
                         NowPlayingAdapter(
                             response.body()?.result as ArrayList<MovieResult>,
@@ -91,6 +100,7 @@ class MovieFragment : Fragment() {
             override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
                 if (response.isSuccessful) {
                     progressBar.visibility = View.GONE
+                    tvUpcoming.text = getString(R.string.upcoming)
                     rvUpcoming.adapter = activity?.let {
                         UpcomingAdapter(
                             response.body()!!.result as ArrayList<MovieResult>,
@@ -113,6 +123,7 @@ class MovieFragment : Fragment() {
             override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
                 if (response.isSuccessful) {
                     progressBar.visibility = View.GONE
+                    tvPopular.text = getString(R.string.popular)
                     rvPopular.adapter = activity?.let {
                         PopularAdapter(
                             response.body()!!.result as ArrayList<MovieResult>,

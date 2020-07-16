@@ -22,10 +22,10 @@
             android:visibility="visible" />
 
         <TextView
+            android:id="@+id/tv_now_playing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/now_playing"
             android:textColor="@color/colorFont"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -39,10 +39,10 @@
             tools:listitem="@layout/item_now_playing" />
 
         <TextView
+            android:id="@+id/tv_upcoming"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/upcoming"
             android:textColor="@color/colorFont"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -54,10 +54,10 @@
             tools:listitem="@layout/item_popular" />
 
         <TextView
+            android:id="@+id/tv_popular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/popular"
             android:textColor="@color/colorFont"
             android:textSize="30sp"
             android:textStyle="bold" />

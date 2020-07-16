@@ -33,10 +33,11 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
 
         setSupportActionBar(toolbar_detail)
-        supportActionBar?.title = ""
+        supportActionBar?.title = "Movie"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar_detail.setNavigationOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
         val viewPagerAdapter = ViewPagerAdapter(this, supportFragmentManager)
