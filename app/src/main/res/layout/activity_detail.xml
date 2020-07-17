@@ -53,7 +53,7 @@
             android:textColor="@color/colorFont"
             android:textSize="30sp"
             android:textStyle="bold"
-            tools:text="Title" />
+            android:text="@string/title" />
 
         <ImageView
             android:id="@+id/iv_detail"
