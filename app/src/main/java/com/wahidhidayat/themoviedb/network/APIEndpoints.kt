@@ -47,4 +47,11 @@ interface APIEndpoints {
         @Query("api_key") apiKey: String,
         @Query("language") language: String?
     ): Call<Videos>
+
+    @GET("search/movie")
+    fun getSearch(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String?,
+        @Query("query") query: String
+    ): Call<Movies>
 }

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBackground">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:theme="@android:style/ThemeOverlay.Material.Dark">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="148dp"
+                android:layout_height="220dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/colorImage"
+                android:contentDescription="@string/image_poster" />
+
+            <TextView
+                android:id="@+id/tv_title_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toEndOf="@id/iv_search"
+                android:text="@string/title"
+                android:textColor="@color/colorFont"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_release_header_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title_search"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@id/iv_search"
+                android:text="@string/release"
+                android:textColor="@color/colorFontSecondary"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_release_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title_search"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@id/tv_release_header_search"
+                android:fontFamily="sans-serif"
+                android:text="@string/_20_januari_2000"
+                android:textColor="@color/colorFontSecondary"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_ratting_header_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_release_header_search"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@id/iv_search"
+                android:fontFamily="sans-serif"
+                android:text="@string/vote_average"
+                android:textColor="@color/colorFontSecondary"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_ratting_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_release_search"
+                android:layout_toEndOf="@id/tv_ratting_header_search"
+                android:drawableStart="@drawable/ic_baseline_star_24"
+                android:drawablePadding="5dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/_10"
+                android:textColor="@color/colorFontSecondary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_overview_search"
+                android:layout_width="match_parent"
+                android:layout_height="87dp"
+                android:layout_below="@id/tv_ratting_header_search"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_toEndOf="@id/iv_search"
+                android:text="@string/lorem_ipsum"
+                android:textColor="@color/colorFontSecondary"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

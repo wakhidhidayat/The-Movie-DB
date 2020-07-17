@@ -16,4 +16,8 @@
     <string name="vote_average">Average</string>
     <string name="ratting_max">/10</string>
     <string name="thumbnail">Thumbnail</string>
+    <string name="image_poster">Image Poster</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="_20_januari_2000">20 Januari 2000</string>
+    <string name="_10">10</string>
 </resources>
