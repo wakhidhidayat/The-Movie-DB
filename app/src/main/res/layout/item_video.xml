@@ -5,19 +5,35 @@
     android:layout_height="wrap_content"
     android:background="@color/colorBackground">
 
-    <ImageView
-        android:id="@+id/iv_video"
-        android:layout_width="180dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorImage"
-        android:contentDescription="@string/thumbnail"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:scaleType="fitXY"
-        android:theme="@android:style/ThemeOverlay.Material.Dark" />
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_video"
+            android:layout_width="180dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorImage"
+            android:contentDescription="@string/thumbnail"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:scaleType="fitXY"
+            android:theme="@android:style/ThemeOverlay.Material.Dark" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/thumbnail"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_baseline_play_circle_filled_32"
+            android:theme="@android:style/ThemeOverlay.Material.Dark" />
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tv_title_video"
@@ -26,7 +42,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="16dp"
-        android:layout_toEndOf="@id/iv_video"
+        android:layout_toEndOf="@id/frame_layout"
         android:textColor="@color/colorFont"
         android:textSize="20sp"
         tools:text="Title" />
@@ -38,7 +54,7 @@
         android:layout_below="@id/tv_title_video"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="5dp"
-        android:layout_toEndOf="@id/iv_video"
+        android:layout_toEndOf="@id/frame_layout"
         android:textColor="@color/colorFontSecondary"
         android:textSize="15sp"
         tools:text="Source" />
@@ -49,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_site"
         android:layout_marginEnd="16dp"
-        android:layout_toEndOf="@id/iv_video"
+        android:layout_toEndOf="@id/frame_layout"
         android:textColor="@color/colorFontSecondary"
         android:textSize="15sp"
         tools:text="Type" />

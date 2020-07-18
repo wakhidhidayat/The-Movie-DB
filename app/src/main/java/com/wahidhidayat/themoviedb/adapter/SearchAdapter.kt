@@ -12,6 +12,9 @@ import com.wahidhidayat.themoviedb.R
 import com.wahidhidayat.themoviedb.activity.DetailActivity
 import com.wahidhidayat.themoviedb.model.MovieResult
 import kotlinx.android.synthetic.main.item_search.view.*
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SearchAdapter(
     private val listMovie: ArrayList<MovieResult>,
@@ -24,10 +27,24 @@ class SearchAdapter(
                     .load(BuildConfig.BASE_IMAGE_URL + "w500" + movie.poster_path)
                     .into(iv_search)
                 tv_title_search.text = movie.title
-                tv_release_search.text = movie.release_date
+                tv_release_search.text = dateFormat(movie.release_date.toString())
                 tv_ratting_search.text = movie.vote_average.toString()
                 tv_overview_search.text = movie.overview
             }
+        }
+
+        private fun dateFormat(releaseDate: String): String {
+            val formatYear = SimpleDateFormat("yyyy", Locale.ENGLISH)
+            var year: String? = null
+            try {
+                val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+                val date: Date = simpleDateFormat.parse(releaseDate)
+                year = formatYear.format(date).toString()
+
+            } catch (e: ParseException) {
+                e.printStackTrace()
+            }
+            return year.toString()
         }
     }
 

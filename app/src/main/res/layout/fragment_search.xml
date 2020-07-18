@@ -15,7 +15,7 @@
         android:layout_marginEnd="16dp"
         android:text="@string/search"
         android:textColor="@color/colorFont"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <SearchView
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@color/colorNavigation"
+        android:background="@drawable/rounded_button"
         android:iconifiedByDefault="false"
         android:queryHint="Search Here"
         android:searchIcon="@drawable/ic_baseline_search_24">
