@@ -12,7 +12,7 @@ import com.wahidhidayat.themoviedb.model.Cast
 import kotlinx.android.synthetic.main.item_credit.view.*
 
 class CastAdapter(
-    private val listCredit: ArrayList<Cast>,
+    private val listCredit: List<Cast>,
     private val context: Context?
 ) : RecyclerView.Adapter<CastAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

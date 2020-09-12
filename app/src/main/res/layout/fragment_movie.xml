@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     android:scrollbars="vertical"
-    tools:context=".fragment.MovieFragment">
+    tools:context=".ui.movie.MovieFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:text="@string/now_playing"
             android:textColor="@color/colorFont"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -43,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:text="@string/upcoming"
             android:textColor="@color/colorFont"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -58,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:text="@string/popular"
             android:textColor="@color/colorFont"
             android:textSize="30sp"
             android:textStyle="bold" />

@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.wahidhidayat.themoviedb.BuildConfig
 import com.wahidhidayat.themoviedb.R
-import com.wahidhidayat.themoviedb.activity.DetailActivity
 import com.wahidhidayat.themoviedb.model.MovieResult
+import com.wahidhidayat.themoviedb.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.item_popular.view.*
 
 class PopularAdapter(
-    private val listMovie: ArrayList<MovieResult>,
-    private val context: Context
+    private val listMovie: List<MovieResult>,
+    private val context: Context?
 ) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: MovieResult) {
@@ -24,6 +24,12 @@ class PopularAdapter(
                 Glide.with(itemView.context)
                     .load(BuildConfig.BASE_IMAGE_URL + "w500" + movie.backdrop_path)
                     .into(iv_popular)
+
+                itemView.setOnClickListener {
+                    val intent = Intent(context, DetailActivity::class.java)
+                    intent.putExtra(DetailActivity.EXTRA_MOVIE, movie)
+                    context?.startActivity(intent)
+                }
             }
         }
     }
@@ -40,10 +46,5 @@ class PopularAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movie: MovieResult = listMovie[position]
         holder.bind(movie)
-        holder.itemView.setOnClickListener {
-            val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra(DetailActivity.EXTRA_MOVIE, movie)
-            context.startActivity(intent)
-        }
     }
 }

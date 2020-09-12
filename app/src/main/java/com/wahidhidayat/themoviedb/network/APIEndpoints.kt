@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface APIEndpoints {
     @GET("movie/now_playing")
-    fun getMovies(
+    fun getNowPlaying(
         @Query("api_key") apiKey: String,
         @Query("language") language: String?
     ): Call<Movies>

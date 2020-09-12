@@ -13,7 +13,7 @@ import com.wahidhidayat.themoviedb.model.VideoResult
 import kotlinx.android.synthetic.main.item_video.view.*
 
 class VideoAdapter(
-    private val listVideos: ArrayList<VideoResult>,
+    private val listVideos: List<VideoResult>,
     private val context: Context?
 ) : RecyclerView.Adapter<VideoAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

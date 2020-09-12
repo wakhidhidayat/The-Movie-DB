@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorBackground"
     android:orientation="vertical"
-    tools:context=".fragment.VideoFragment">
+    tools:context=".ui.video.VideoFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_videos"

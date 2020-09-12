@@ -1,4 +1,4 @@
-package com.wahidhidayat.themoviedb.activity
+package com.wahidhidayat.themoviedb.ui.main
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wahidhidayat.themoviedb.R
-import com.wahidhidayat.themoviedb.fragment.MovieFragment
-import com.wahidhidayat.themoviedb.fragment.SearchFragment
+import com.wahidhidayat.themoviedb.ui.movie.MovieFragment
+import com.wahidhidayat.themoviedb.ui.search.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +41,4 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
         return false
     }
-
-
 }

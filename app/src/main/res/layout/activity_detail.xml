@@ -8,7 +8,7 @@
     android:background="@color/colorBackground"
     android:fillViewport="true"
     android:scrollbars="vertical"
-    tools:context=".activity.DetailActivity">
+    tools:context=".ui.detail.DetailActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:indeterminateTint="@color/colorFont"
-            android:visibility="invisible" />
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/tv_title_detail"

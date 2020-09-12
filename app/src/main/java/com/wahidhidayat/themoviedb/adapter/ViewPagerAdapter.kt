@@ -5,8 +5,8 @@ import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.wahidhidayat.themoviedb.fragment.InfoFragment
-import com.wahidhidayat.themoviedb.fragment.VideoFragment
+import com.wahidhidayat.themoviedb.ui.info.InfoFragment
+import com.wahidhidayat.themoviedb.ui.video.VideoFragment
 
 class ViewPagerAdapter(context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
