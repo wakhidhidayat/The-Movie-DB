@@ -1,7 +1,6 @@
 package com.wahidhidayat.themoviedb.ui.video
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import com.wahidhidayat.themoviedb.adapter.VideoAdapter
 import com.wahidhidayat.themoviedb.model.VideoResult
 import com.wahidhidayat.themoviedb.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.fragment_video.*
-import kotlinx.android.synthetic.main.fragment_video.view.*
 
 class VideoFragment : Fragment(), VideoContract.VideoView {
 
@@ -59,7 +57,7 @@ class VideoFragment : Fragment(), VideoContract.VideoView {
     }
 
     override fun attachToVideos(videos: List<VideoResult>?) {
-        if(videos != null) {
+        if (videos != null) {
             listVideo.addAll(videos)
             videoAdapter.notifyDataSetChanged()
         }

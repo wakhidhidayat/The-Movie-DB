@@ -1,8 +1,6 @@
 package com.wahidhidayat.themoviedb.ui.video
 
 import com.wahidhidayat.themoviedb.BuildConfig
-import com.wahidhidayat.themoviedb.adapter.VideoAdapter
-import com.wahidhidayat.themoviedb.model.VideoResult
 import com.wahidhidayat.themoviedb.model.Videos
 import com.wahidhidayat.themoviedb.network.APIEndpoints
 import com.wahidhidayat.themoviedb.network.APIService
@@ -18,7 +16,7 @@ class VideoPresenter(v: VideoContract.VideoView) {
         val call = service.getVideos(movieId, BuildConfig.API_KEY, language)
         call.enqueue(object : Callback<Videos> {
             override fun onResponse(call: Call<Videos>, response: Response<Videos>) {
-                if(response.isSuccessful) {
+                if (response.isSuccessful) {
                     view?.attachToVideos(response.body()?.results)
                 } else {
                     view?.showToast("Something went wrong, try again later")

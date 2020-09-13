@@ -35,7 +35,8 @@
         android:id="@+id/pb_search"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_search"

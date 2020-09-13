@@ -1,10 +1,6 @@
 package com.wahidhidayat.themoviedb.ui.search
 
-import android.view.View
-import android.widget.Toast
 import com.wahidhidayat.themoviedb.BuildConfig
-import com.wahidhidayat.themoviedb.adapter.SearchAdapter
-import com.wahidhidayat.themoviedb.model.MovieResult
 import com.wahidhidayat.themoviedb.model.Movies
 import com.wahidhidayat.themoviedb.network.APIEndpoints
 import com.wahidhidayat.themoviedb.network.APIService
