@@ -12,9 +12,14 @@ import com.wahidhidayat.themoviedb.adapter.ViewPagerAdapter
 import com.wahidhidayat.themoviedb.model.MovieResult
 import com.wahidhidayat.themoviedb.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_detail.*
+import org.koin.core.KoinComponent
+import org.koin.core.inject
+import org.koin.core.parameter.parametersOf
 
-class DetailActivity : AppCompatActivity(), DetailContract.DetailView {
-    private var presenter: DetailPresenter? = null
+class DetailActivity : AppCompatActivity(), DetailContract.DetailView, KoinComponent {
+    private val presenter: DetailPresenter by inject {
+        parametersOf(this)
+    }
 
     companion object {
         const val EXTRA_MOVIE = "extra_movie"
@@ -31,8 +36,6 @@ class DetailActivity : AppCompatActivity(), DetailContract.DetailView {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-
-        presenter = DetailPresenter(this)
 
         val viewPagerAdapter = ViewPagerAdapter(this, supportFragmentManager)
         view_pager.adapter = viewPagerAdapter
@@ -51,7 +54,7 @@ class DetailActivity : AppCompatActivity(), DetailContract.DetailView {
     }
 
     private fun fetchDetail(movieId: Int, language: String) {
-        presenter?.showDetail(movieId, language)
+        presenter.showDetail(movieId, language)
     }
 
     override fun showLoading() {

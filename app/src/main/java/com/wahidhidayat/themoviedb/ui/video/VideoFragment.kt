@@ -12,10 +12,14 @@ import com.wahidhidayat.themoviedb.adapter.VideoAdapter
 import com.wahidhidayat.themoviedb.model.VideoResult
 import com.wahidhidayat.themoviedb.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.fragment_video.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class VideoFragment : Fragment(), VideoContract.VideoView {
 
-    private var presenter: VideoPresenter? = null
+    private val presenter: VideoPresenter by inject {
+        parametersOf(this)
+    }
 
     private var listVideo: MutableList<VideoResult> = mutableListOf()
     private val videoAdapter = VideoAdapter(listVideo, context)
@@ -35,8 +39,6 @@ class VideoFragment : Fragment(), VideoContract.VideoView {
         val movie = detailActivity.getMovie()
         val movieId = movie.id
 
-        presenter = VideoPresenter(this)
-
         rv_videos.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -49,7 +51,7 @@ class VideoFragment : Fragment(), VideoContract.VideoView {
     }
 
     private fun fetchVideos(movieId: Int, language: String) {
-        presenter?.fetchVideos(movieId, language)
+        presenter.fetchVideos(movieId, language)
     }
 
     override fun showToast(message: String) {

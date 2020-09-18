@@ -11,13 +11,14 @@ import com.wahidhidayat.themoviedb.R
 import com.wahidhidayat.themoviedb.adapter.SearchAdapter
 import com.wahidhidayat.themoviedb.model.MovieResult
 import kotlinx.android.synthetic.main.fragment_search.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class SearchFragment : Fragment(), SearchContract.SearchView {
 
-    private var presenter: SearchPresenter? = null
-
-    private var listResult: MutableList<MovieResult> = mutableListOf()
-    private val searchAdapter = SearchAdapter(listResult, context)
+    private val presenter: SearchPresenter by inject {
+        parametersOf(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +29,6 @@ class SearchFragment : Fragment(), SearchContract.SearchView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        presenter = SearchPresenter(this)
 
         rv_search.apply {
             setHasFixedSize(true)
@@ -61,7 +60,7 @@ class SearchFragment : Fragment(), SearchContract.SearchView {
     }
 
     private fun fetchResult(language: String, query: String) {
-        presenter?.fetchResult(language, query)
+        presenter.fetchResult(language, query)
     }
 
     override fun showLoading() {

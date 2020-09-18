@@ -14,9 +14,14 @@ import com.wahidhidayat.themoviedb.adapter.PopularAdapter
 import com.wahidhidayat.themoviedb.adapter.UpcomingAdapter
 import com.wahidhidayat.themoviedb.model.MovieResult
 import kotlinx.android.synthetic.main.fragment_movie.*
+import org.koin.android.ext.android.inject
+import org.koin.core.KoinComponent
+import org.koin.core.parameter.parametersOf
 
-class MovieFragment : Fragment(), MovieContract.MovieView {
-    private var presenter: MoviePresenter? = null
+class MovieFragment : Fragment(), MovieContract.MovieView, KoinComponent {
+    private val presenter: MoviePresenter by inject {
+        parametersOf(this)
+    }
 
     private var listNowPlaying: MutableList<MovieResult> = mutableListOf()
     private val nowPlayingAdapter = NowPlayingAdapter(listNowPlaying, context)
@@ -37,8 +42,6 @@ class MovieFragment : Fragment(), MovieContract.MovieView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        presenter = MoviePresenter(this)
 
         showUpcoming()
         showNowPlaying()
@@ -64,15 +67,15 @@ class MovieFragment : Fragment(), MovieContract.MovieView {
     }
 
     private fun showUpcoming() {
-        presenter?.showUpcoming(BuildConfig.API_KEY, "en-US")
+        presenter.showUpcoming(BuildConfig.API_KEY, "en-US")
     }
 
     private fun showNowPlaying() {
-        presenter?.showNowPlaying(BuildConfig.API_KEY, "en-US")
+        presenter.showNowPlaying(BuildConfig.API_KEY, "en-US")
     }
 
     private fun showPopular() {
-        presenter?.showPopular(BuildConfig.API_KEY, "en-US")
+        presenter.showPopular(BuildConfig.API_KEY, "en-US")
     }
 
     override fun showLoading() {

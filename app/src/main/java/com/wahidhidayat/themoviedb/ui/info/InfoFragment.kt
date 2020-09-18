@@ -13,10 +13,14 @@ import com.wahidhidayat.themoviedb.model.Cast
 import com.wahidhidayat.themoviedb.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.fragment_info.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class InfoFragment : Fragment(), InfoContract.InfoView {
 
-    private var presenter: InfoPresenter? = null
+    private val presenter: InfoPresenter by inject {
+        parametersOf(this)
+    }
 
     private var listCast: MutableList<Cast> = mutableListOf()
     private val castAdapter = CastAdapter(listCast, context)
@@ -35,8 +39,6 @@ class InfoFragment : Fragment(), InfoContract.InfoView {
         val movie = detailActivity.getMovie()
         val movieId = movie.id
 
-        presenter = InfoPresenter(this)
-
         rv_credits.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -50,11 +52,11 @@ class InfoFragment : Fragment(), InfoContract.InfoView {
     }
 
     private fun fetchInfo(movieId: Int, language: String) {
-        presenter?.fetchInfo(movieId, language)
+        presenter.fetchInfo(movieId, language)
     }
 
     private fun fetchCredits(movieId: Int) {
-        presenter?.fetchCasts(movieId)
+        presenter.fetchCasts(movieId)
     }
 
     override fun showLoading() {
